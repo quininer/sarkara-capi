@@ -6,7 +6,10 @@ build = "build.rs"
 
 [lib]
 name = "sarkara"
-crate-type = ["cdylib"]
+crate-type = [ "cdylib" ] # asmjs => "bin"
+
+[profile.release]
+lto = true
 
 [dependencies]
 libc = "*"

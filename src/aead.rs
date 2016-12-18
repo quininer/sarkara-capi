@@ -1,14 +1,9 @@
 use std::{ slice, ptr };
-use std::error::Error;
-use std::convert::TryFrom;
 use libc::{ uint8_t, c_uint };
 use sarkara::aead::{ AeadCipher, DecryptFail, Ascon, General, RivGeneral };
 use sarkara::stream::HC256;
-use sarkara::auth::{ Mac, NonceMac, HMAC };
-use sarkara::hash::{ Hash, GenericHash, Blake2b };
-use sarkara::kex::{ KeyExchange, NewHope };
-use sarkara::sign::{ Signature, Bliss };
-use sarkara::pwhash::{ KeyDerive, KeyVerify, Argon2i };
+use sarkara::auth::HMAC;
+use sarkara::hash::Blake2b;
 
 type BHMAC = HMAC<Blake2b>;
 type HHBB = General<HC256, BHMAC, Blake2b>;
